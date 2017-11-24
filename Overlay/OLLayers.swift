@@ -25,6 +25,15 @@ import Foundation
 public final class OLLayers {
 
 	private var images: [Int: CIImage] = [:]
+	
+	/// The number of layers. 
+	public var count: Int {
+		get {
+			return images.count
+		}
+	}
+	
+	// MARK - Initializers
 
 	/// Create a collection of layers from images stored in the asset catalog.
 	/// Pass a dictionary to specify the order of the images, starting at 0.
@@ -91,15 +100,19 @@ public final class OLLayers {
 			self.images.updateValue(ciImage, forKey: layer)
 		}
 	}
+	
+	// MARK - Layer Operations
 
 	/// Get the specified layer.
 	///
-	/// - Parameter layer: <#layer description#>
+	/// - Parameter layer: The layer number to retrieve
 	/// - Returns: The layer. Nil if the layer does not exist.
 	public func layer(_ layer: Int) -> UIImage {
 		
 	}
 
+	// MARK - Helpers
+	
 	/// Validate a layer dictionary.
 	///
 	/// - Parameter dictionary: The dictionary to validate

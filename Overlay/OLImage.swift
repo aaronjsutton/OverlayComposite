@@ -13,6 +13,10 @@ import CoreImage
 ///
 /// Can represent images in multiple formats
 ///
-open class OLImage {
+public final class OLImage {
+
+	init(with layers: OLLayers) {
+		
+	}
 	
 }
