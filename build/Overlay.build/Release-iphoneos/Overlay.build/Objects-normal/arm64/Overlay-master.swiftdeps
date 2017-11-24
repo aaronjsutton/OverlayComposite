@@ -1,0 +1,7 @@
+version: "Apple Swift version 4.0.2 (swiftlang-900.0.69.2 clang-900.0.38)"
+options: "fcb099957f23f77addc7881adae1c15b"
+build_time: [1511543225, 387808000]
+inputs:
+  "/Users/aaronsutton/Documents/Code/Overlay/Overlay/OLError.swift": [9223372036, 854775807]
+  "/Users/aaronsutton/Documents/Code/Overlay/Overlay/OLLayers.swift": [9223372036, 854775807]
+  "/Users/aaronsutton/Documents/Code/Overlay/Overlay/OLImage.swift": [9223372036, 854775807]

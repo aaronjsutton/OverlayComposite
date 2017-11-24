@@ -1,0 +1,10 @@
+framework module Overlay {
+  umbrella header "Overlay.h"
+
+  export *
+  module * { export * }
+}
+
+module Overlay.__Swift {
+    exclude header "Overlay-Swift.h"
+}
