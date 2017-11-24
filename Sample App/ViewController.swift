@@ -28,10 +28,11 @@ class ViewController: UIViewController {
 			[
 				0: UIImage(named: "Square")!,
 				1: UIImage(named: "Polygon")!,
-				]
+			]
 		guard let compositeLayers = try? OLLayers(with: layers) else {
 			return
 		}
+		imageView.image = compositeLayers.layer(1) ?? UIImage(named: "Square")!
 	}
 }
 

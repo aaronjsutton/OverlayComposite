@@ -9,13 +9,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Sample App/ViewController.swift"
-            timestampString = "533239872.541198"
+            filePath = "Overlay/OLCore.swift"
+            timestampString = "533258455.903286"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "addOverlay()"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "convert(image:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Overlay/OLCore.swift"
+            timestampString = "533258455.903636"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "convert(image:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

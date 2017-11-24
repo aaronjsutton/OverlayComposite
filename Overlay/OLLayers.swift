@@ -107,8 +107,14 @@ public final class OLLayers {
 	///
 	/// - Parameter layer: The layer number to retrieve
 	/// - Returns: The layer. Nil if the layer does not exist.
-	public func layer(_ layer: Int) -> UIImage {
-		
+	public func layer(_ layer: Int) -> UIImage? {
+		guard let image = images[layer] else {
+			return nil
+		}
+		guard let result = OLCore.convert(image: image) else {
+			return nil
+		}
+		return result
 	}
 
 	// MARK - Helpers
