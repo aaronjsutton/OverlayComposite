@@ -27,7 +27,7 @@ class ViewController: UIViewController {
 		let layers =
 			[
 				0: "Square",
-				2: "Polygon",
+				1: "Polygon",
 				]
 		let ol = try? OLLayers(from: layers)
 	}

@@ -13,7 +13,7 @@ import Foundation
 /// Images are ordered by layer
 public final class OLLayers {
 
-//	private var images: [Int: CIImage]
+	public var images: [Int: CIImage] = [:]
 
 	/// Create a collection of layers from images stored in the asset catalog.
 	/// Pass a dictionary to specify the order of the images, starting at 0.
@@ -40,8 +40,8 @@ public final class OLLayers {
 			guard let ciImage = CIImage(image: uiImage) else {
 				throw OLError(.invalidImage, imageName: image)
 			}
+			self.images.updateValue(ciImage, forKey: layer)
 		}
-
 	}
 
 	/// Validate a dictionary, ensuring it is in proper layered order
