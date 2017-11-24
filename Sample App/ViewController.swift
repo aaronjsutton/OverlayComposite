@@ -32,7 +32,12 @@ class ViewController: UIViewController {
 		guard let compositeLayers = try? OLLayers(with: layers) else {
 			return
 		}
-		imageView.image = compositeLayers.layer(1) ?? UIImage(named: "Square")!
+		DispatchQueue.global(qos: .userInitiated).async {
+			let image = compositeLayers.layer(1) ?? UIImage(named: "Square")!
+			DispatchQueue.main.async {
+				self.imageView.image = image
+			}
+		}
 	}
 }
 
