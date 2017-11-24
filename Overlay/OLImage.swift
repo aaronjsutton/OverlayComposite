@@ -17,7 +17,6 @@ import CoreImage
 public final class OLImage {
 
 	init(with layers: OLLayers) {
-		
+
 	}
-	
 }

@@ -27,7 +27,7 @@ class ViewController: UIViewController {
 		let layers =
 			[
 				0: UIImage(named: "Square")!,
-				1: UIImage(named: "Polygon")!,
+				1: UIImage(named: "Polygon")!
 			]
 		guard let compositeLayers = try? OLLayers(with: layers) else {
 			return
@@ -40,4 +40,3 @@ class ViewController: UIViewController {
 		}
 	}
 }
-

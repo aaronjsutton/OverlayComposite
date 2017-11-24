@@ -19,6 +19,7 @@ class OLCore {
 	/// - Returns: The converted UIImage, nil if error occurred
 	public class func convert(image: CIImage) -> UIImage? {
 		let context: CIContext
+
 		// Check if the devive supports Metal
 		if let mtlDevice = MTLCreateSystemDefaultDevice() {
 			// Use Metal enhanced context
@@ -27,10 +28,12 @@ class OLCore {
 			// Use default context
 			context = CIContext.init()
 		}
+
 		// Create bitmap data
 		guard let cgImage = context.createCGImage(image, from: image.extent) else {
 			return nil
 		}
+
 		// Convert CGImage to UIImage and return
 		return UIImage(cgImage: cgImage)
 	}
