@@ -27,15 +27,9 @@ class ViewController: UIViewController {
 		let layers =
 			[
 				0: "Square",
-				1: "Polygon",
+				2: "Polygon",
 				]
-		do {
-			_ = try OLLayers(from: layers)
-		} catch let error as OLError {
-			fatalError(error.description)
-		} catch {
-			fatalError("Unknown Error")
-		}
+		let ol = try? OLLayers(from: layers)
 	}
 }
 

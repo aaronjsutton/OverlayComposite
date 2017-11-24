@@ -17,6 +17,8 @@ public struct OLError: Error {
 		case imageNotFound = "was not found"
 		/// The specified image could not be converted into CIImage
 		case invalidImage = "is invalid"
+		/// The layer dictionary is not valid
+		case invalidDictionary = "invalid layer dictionary"
 	}
 
 	/// The description of the error in String format

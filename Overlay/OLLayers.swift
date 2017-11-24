@@ -24,13 +24,35 @@ public final class OLLayers {
 	///
 	/// - Parameter images: The images to be composited, ordered by layer
 	/// - Throws: Errors if the layers could not be organized
-	public init(from images: [Int: String]) throws {
+	public init?(from images: [Int: String]) throws {
+		// Validate dictionary
+		do {
+			try OLLayers.isLayerDictionary(images)
+		} catch let error {
+			throw error
+		}
+
+		// Validate images
 		for (layer, image) in images {
 			guard let uiImage = UIImage(named: image) else {
 				throw OLError(.imageNotFound, imageName: image)
 			}
 			guard let ciImage = CIImage(image: uiImage) else {
 				throw OLError(.invalidImage, imageName: image)
+			}
+		}
+
+	}
+
+	/// Validate a dictionary, ensuring it is in proper layered order
+	///
+	/// - Parameter dictionary: The dictionary to validate
+	/// - Throws: An error if the dictionary is invalid
+	public class func isLayerDictionary(_ dictionary: [Int: String]) throws {
+		let total = dictionary.count - 1
+		for index in 0...total {
+			if dictionary[index] == nil {
+				throw OLError(.invalidDictionary)
 			}
 		}
 	}
