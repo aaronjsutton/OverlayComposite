@@ -61,11 +61,50 @@ public final class OLLayers {
 		}
 	}
 
+	/// Create a collection of layers from UIImage objects.
+	/// Pass a dictionary to specify the order of the images, starting at 0.
+	/// ## Example
+	///
+	/// Create a dictionary of images and layers:
+	///
+	/// ```swift
+	///		let layers = [0: image1, 1: image2]
+	/// ```
+	///
+	/// **Note:** Ensure layers are in proper order, otherwise an error will be thrown.
+	///
+	/// - Parameter images: The UIImages and their corresponding layer numbers
+	/// - Throws: Errors if the layers could not be organized
+	public init(with images: [Int: UIImage]) throws {
+		// Validate dictionary
+		if !OLLayers.isLayerDictionary(images) {
+			throw OLError(.invalidDictionary)
+		}
+
+		// Validate images
+		for (layer, image) in images {
+			// Convert the image to CIImage
+			guard let ciImage = CIImage(image: image) else {
+				throw OLError(.invalidImage)
+			}
+			// Add the image to the registry
+			self.images.updateValue(ciImage, forKey: layer)
+		}
+	}
+
+	/// Get the specified layer.
+	///
+	/// - Parameter layer: <#layer description#>
+	/// - Returns: The layer. Nil if the layer does not exist.
+	public func layer(_ layer: Int) -> UIImage {
+		
+	}
+
 	/// Validate a layer dictionary.
 	///
 	/// - Parameter dictionary: The dictionary to validate
 	/// - Returns: False if the dictionary is invalid
-	public class func isLayerDictionary(_ dictionary: [Int: String]) -> Bool {
+	public class func isLayerDictionary(_ dictionary: [Int: Any]) -> Bool {
 		let total = dictionary.count - 1
 		for index in 0...total {
 			if dictionary[index] == nil {

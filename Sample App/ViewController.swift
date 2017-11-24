@@ -26,10 +26,10 @@ class ViewController: UIViewController {
 	@IBAction func addOverlay() {
 		let layers =
 			[
-				0: "Square",
-				1: "Polygon",
+				0: UIImage(named: "Square")!,
+				1: UIImage(named: "Polygon")!,
 				]
-		guard let compositeLayers = try? OLLayers(from: layers) else {
+		guard let compositeLayers = try? OLLayers(with: layers) else {
 			return
 		}
 	}

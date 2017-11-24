@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC34C4A01FC897AC00BE69BD /* Sample_App_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC34C49F1FC897AC00BE69BD /* Sample_App_UITests.swift */; };
 		CC9992CF1FC863130093CE18 /* Overlay.h in Headers */ = {isa = PBXBuildFile; fileRef = CC9992CD1FC863130093CE18 /* Overlay.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CC9992D61FC866EC0093CE18 /* OLImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9992D51FC866EC0093CE18 /* OLImage.swift */; };
 		CC9992FE1FC86A9D0093CE18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9992FD1FC86A9D0093CE18 /* AppDelegate.swift */; };
@@ -21,6 +22,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		CC34C4A21FC897AC00BE69BD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CC9992C11FC863130093CE18 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CC9992FA1FC86A9D0093CE18;
+			remoteInfo = "Sample App";
+		};
 		CC9993161FC873320093CE18 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CC9992C11FC863130093CE18 /* Project object */;
@@ -45,6 +53,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CC34C49D1FC897AC00BE69BD /* Sample App UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sample App UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC34C49F1FC897AC00BE69BD /* Sample_App_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample_App_UITests.swift; sourceTree = "<group>"; };
+		CC34C4A11FC897AC00BE69BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC9992CA1FC863130093CE18 /* Overlay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Overlay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC9992CD1FC863130093CE18 /* Overlay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Overlay.h; sourceTree = "<group>"; };
 		CC9992CE1FC863130093CE18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -61,6 +72,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		CC34C49A1FC897AC00BE69BD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CC9992C61FC863130093CE18 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -79,11 +97,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CC34C49E1FC897AC00BE69BD /* Sample App UITests */ = {
+			isa = PBXGroup;
+			children = (
+				CC34C49F1FC897AC00BE69BD /* Sample_App_UITests.swift */,
+				CC34C4A11FC897AC00BE69BD /* Info.plist */,
+			);
+			path = "Sample App UITests";
+			sourceTree = "<group>";
+		};
 		CC9992C01FC863130093CE18 = {
 			isa = PBXGroup;
 			children = (
 				CC9992CC1FC863130093CE18 /* Overlay */,
 				CC9992FC1FC86A9D0093CE18 /* Sample App */,
+				CC34C49E1FC897AC00BE69BD /* Sample App UITests */,
 				CC9992CB1FC863130093CE18 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -93,6 +121,7 @@
 			children = (
 				CC9992CA1FC863130093CE18 /* Overlay.framework */,
 				CC9992FB1FC86A9D0093CE18 /* Sample App.app */,
+				CC34C49D1FC897AC00BE69BD /* Sample App UITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -136,6 +165,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		CC34C49C1FC897AC00BE69BD /* Sample App UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CC34C4A41FC897AC00BE69BD /* Build configuration list for PBXNativeTarget "Sample App UITests" */;
+			buildPhases = (
+				CC34C4991FC897AC00BE69BD /* Sources */,
+				CC34C49A1FC897AC00BE69BD /* Frameworks */,
+				CC34C49B1FC897AC00BE69BD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CC34C4A31FC897AC00BE69BD /* PBXTargetDependency */,
+			);
+			name = "Sample App UITests";
+			productName = "Sample App UITests";
+			productReference = CC34C49D1FC897AC00BE69BD /* Sample App UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		CC9992C91FC863130093CE18 /* Overlay */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CC9992D21FC863130093CE18 /* Build configuration list for PBXNativeTarget "Overlay" */;
@@ -179,10 +226,15 @@
 		CC9992C11FC863130093CE18 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0910;
+				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "Aaron Sutton";
 				TargetAttributes = {
+					CC34C49C1FC897AC00BE69BD = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = CC9992FA1FC86A9D0093CE18;
+					};
 					CC9992C91FC863130093CE18 = {
 						CreatedOnToolsVersion = 9.1;
 						LastSwiftMigration = 0910;
@@ -209,11 +261,19 @@
 			targets = (
 				CC9992C91FC863130093CE18 /* Overlay */,
 				CC9992FA1FC86A9D0093CE18 /* Sample App */,
+				CC34C49C1FC897AC00BE69BD /* Sample App UITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		CC34C49B1FC897AC00BE69BD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CC9992C81FC863130093CE18 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -234,6 +294,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		CC34C4991FC897AC00BE69BD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC34C4A01FC897AC00BE69BD /* Sample_App_UITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CC9992C51FC863130093CE18 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -256,6 +324,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		CC34C4A31FC897AC00BE69BD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CC9992FA1FC86A9D0093CE18 /* Sample App */;
+			targetProxy = CC34C4A21FC897AC00BE69BD /* PBXContainerItemProxy */;
+		};
 		CC9993171FC873320093CE18 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = CC9992C91FC863130093CE18 /* Overlay */;
@@ -283,6 +356,39 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		CC34C4A51FC897AC00BE69BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 79S8R8WVLX;
+				INFOPLIST_FILE = "Sample App UITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.aaronjsutton.overlay.Sample-App-UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Sample App";
+			};
+			name = Debug;
+		};
+		CC34C4A61FC897AC00BE69BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 79S8R8WVLX;
+				INFOPLIST_FILE = "Sample App UITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.aaronjsutton.overlay.Sample-App-UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Sample App";
+			};
+			name = Release;
+		};
 		CC9992D01FC863130093CE18 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -476,6 +582,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		CC34C4A41FC897AC00BE69BD /* Build configuration list for PBXNativeTarget "Sample App UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CC34C4A51FC897AC00BE69BD /* Debug */,
+				CC34C4A61FC897AC00BE69BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		CC9992C41FC863130093CE18 /* Build configuration list for PBXProject "Overlay" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
