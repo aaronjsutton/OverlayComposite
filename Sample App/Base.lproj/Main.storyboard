@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Sample_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overlay Sample App" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKQ-CE-vjp">
+                                <rect key="frame" x="110" y="149" width="155" height="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Square" translatesAutoresizingMaskIntoConstraints="NO" id="Q7I-z6-xKq">
+                                <rect key="frame" x="71" y="243" width="232" height="181"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cz9-Mr-YT3">
+                                <rect key="frame" x="116" y="479" width="143" height="30"/>
+                                <state key="normal" title="Add Polygon Overlay"/>
+                                <connections>
+                                    <action selector="addOverlay" destination="BYZ-38-t0r" eventType="touchUpInside" id="zNs-l5-cXf"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Cz9-Mr-YT3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Dn3-AM-Mdt"/>
+                            <constraint firstItem="Q7I-z6-xKq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="71" id="ECh-uz-ooK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Q7I-z6-xKq" secondAttribute="bottom" constant="243" id="F9g-nx-a1E"/>
+                            <constraint firstItem="LKQ-CE-vjp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MkZ-3y-ybt"/>
+                            <constraint firstItem="LKQ-CE-vjp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="129" id="VEh-nQ-8yJ"/>
+                            <constraint firstItem="Q7I-z6-xKq" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="VSS-O7-ovL"/>
+                            <constraint firstItem="Q7I-z6-xKq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZfG-ht-acD"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Q7I-z6-xKq" secondAttribute="trailing" constant="72" id="Zyz-2u-SYM"/>
+                            <constraint firstItem="Q7I-z6-xKq" firstAttribute="top" secondItem="LKQ-CE-vjp" secondAttribute="bottom" constant="72" id="dSk-Eb-Cnb"/>
+                            <constraint firstItem="Cz9-Mr-YT3" firstAttribute="top" secondItem="Q7I-z6-xKq" secondAttribute="bottom" constant="55" id="rLR-7c-Onu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="Q7I-z6-xKq" id="rQa-0N-4fJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Square" width="512" height="512"/>
+    </resources>
+</document>
