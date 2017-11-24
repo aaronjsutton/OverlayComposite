@@ -13,23 +13,26 @@ import Foundation
 /// Images are ordered by layer
 public final class OLLayers {
 
-	public var images: [Int: CIImage] = [:]
+	private var images: [Int: CIImage] = [:]
 
 	/// Create a collection of layers from images stored in the asset catalog.
 	/// Pass a dictionary to specify the order of the images, starting at 0.
 	/// ## Example
 	///
-	/// `let layers = [0: "Image 1", 1: "Image 2"]`
-	/// **Note:** Ensure layers are in proper order, otherwise an error will be thrown
+	/// Create a dictionary of images and layers:
 	///
-	/// - Parameter images: The images to be composited, ordered by layer
+	/// ```swift
+	///		let layers = [0: "Image 1", 1: "Image 2"]
+	/// ```
+	///
+	/// **Note:** Ensure layers are in proper order, otherwise an error will be thrown.
+	///
+	/// - Parameter images: The images to be composited, ordered by layer.
 	/// - Throws: Errors if the layers could not be organized
 	public init?(from images: [Int: String]) throws {
 		// Validate dictionary
-		do {
-			try OLLayers.isLayerDictionary(images)
-		} catch let error {
-			throw error
+		if !OLLayers.isLayerDictionary(images) {
+			throw OLError(.invalidDictionary)
 		}
 
 		// Validate images
@@ -44,16 +47,17 @@ public final class OLLayers {
 		}
 	}
 
-	/// Validate a dictionary, ensuring it is in proper layered order
+	/// Validate a layer dictionary
 	///
 	/// - Parameter dictionary: The dictionary to validate
-	/// - Throws: An error if the dictionary is invalid
-	public class func isLayerDictionary(_ dictionary: [Int: String]) throws {
+	/// - Returns: False if the dictionary is invalid
+	public class func isLayerDictionary(_ dictionary: [Int: String]) -> Bool {
 		let total = dictionary.count - 1
 		for index in 0...total {
 			if dictionary[index] == nil {
-				throw OLError(.invalidDictionary)
+				return false
 			}
 		}
+		return true
 	}
 }

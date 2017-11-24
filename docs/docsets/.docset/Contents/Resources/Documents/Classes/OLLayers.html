@@ -72,9 +72,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7Overlay8OLLayersCACs10DictionaryVySiSSG4from_tKcfc"></a>
+                    <a name="/s:7Overlay8OLLayersCACSgs10DictionaryVySiSSG4from_tKcfc"></a>
                     <a name="//apple_ref/swift/Method/init(from:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Overlay8OLLayersCACs10DictionaryVySiSSG4from_tKcfc">init(from:)</a>
+                    <a class="token" href="#/s:7Overlay8OLLayersCACSgs10DictionaryVySiSSG4from_tKcfc">init(from:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -86,8 +86,11 @@
 Pass a dictionary to specify the order of the images, starting at 0.</p>
 <h2 id='example' class='heading'>Example</h2>
 
-<p><code>let layers = [0: &quot;Image 1&quot;, 1: &quot;Image 2&quot;]</code>
-<strong>Note:</strong> Ensure layers are in proper order, otherwise an error will be thrown</p>
+<p>Create a dictionary of images and layers:</p>
+<pre class="highlight swift"><code>    <span class="k">let</span> <span class="nv">layers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">:</span> <span class="s">"Image 1"</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s">"Image 2"</span><span class="p">]</span>
+</code></pre>
+
+<p><strong>Note:</strong> Ensure layers are in proper order, otherwise an error will be thrown.</p>
 <div class="aside aside-throws">
     <p class="aside-title">Throws</p>
     Errors if the layers could not be organized
@@ -99,7 +102,7 @@ Pass a dictionary to specify the order of the images, starting at 0.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">from</span> <span class="nv">images</span><span class="p">:</span> <span class="p">[</span><span class="kt">Int</span><span class="p">:</span> <span class="kt">String</span><span class="p">])</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">?(</span><span class="n">from</span> <span class="nv">images</span><span class="p">:</span> <span class="p">[</span><span class="kt">Int</span><span class="p">:</span> <span class="kt">String</span><span class="p">])</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -116,6 +119,57 @@ Pass a dictionary to specify the order of the images, starting at 0.</p>
                               <td>
                                 <div>
                                   <p>The images to be composited, ordered by layer</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Overlay8OLLayersC17isLayerDictionarySbs0E0VySiSSGFZ"></a>
+                    <a name="//apple_ref/swift/Method/isLayerDictionary(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Overlay8OLLayersC17isLayerDictionarySbs0E0VySiSSGFZ">isLayerDictionary(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Validate a dictionary, ensuring it is in proper layered order</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    An error if the dictionary is invalid
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">isLayerDictionary</span><span class="p">(</span><span class="n">_</span> <span class="nv">dictionary</span><span class="p">:</span> <span class="p">[</span><span class="kt">Int</span><span class="p">:</span> <span class="kt">String</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>dictionary</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The dictionary to validate</p>
                                 </div>
                               </td>
                             </tr>
