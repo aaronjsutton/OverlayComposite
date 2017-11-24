@@ -29,7 +29,9 @@ class ViewController: UIViewController {
 				0: "Square",
 				1: "Polygon",
 				]
-		let ol = try? OLLayers(from: layers)
+		guard let compositeLayers = try? OLLayers(from: layers) else {
+			return
+		}
 	}
 }
 

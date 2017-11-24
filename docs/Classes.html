@@ -73,9 +73,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This object represents a collection of images to be composited</p>
+                        <h2 id='overview' class='heading'>Overview</h2>
 
-<p>Images are ordered by layer</p>
+<p>An object that represents images in layered order.</p>
+
+<p>These images can then be used by OLImage to create a composite image.</p>
+<h2 id='create-from-asset-catalog' class='heading'>Create from Asset Catalog</h2>
+
+<p>Create a new layer object using images from the Asset catalog:</p>
+<pre class="highlight swift"><code>    <span class="k">let</span> <span class="nv">layers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">:</span> <span class="s">"Background Image"</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s">"Overlay Image"</span><span class="p">]</span>
+    <span class="k">guard</span> <span class="k">let</span> <span class="nv">olLayers</span> <span class="o">=</span> <span class="k">try</span><span class="p">?</span> <span class="kt">OLLayers</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="n">layers</span><span class="p">)</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="c1">// Uh-oh! Error occurred.</span>
+    <span class="p">}</span>
+</code></pre>
 
                         <a href="Classes/OLLayers.html" class="slightly-smaller">See more</a>
                       </div>

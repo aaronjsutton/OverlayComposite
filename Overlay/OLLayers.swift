@@ -8,9 +8,20 @@
 
 import Foundation
 
-/// This object represents a collection of images to be composited
+/// ## Overview
+/// An object that represents images in layered order.
 ///
-/// Images are ordered by layer
+/// These images can then be used by OLImage to create a composite image.
+/// ## Create from Asset Catalog
+///
+/// Create a new layer object using images from the Asset catalog:
+///
+/// ```swift
+///		let layers = [0: "Background Image", 1: "Overlay Image"]
+///		guard let olLayers = try? OLLayers(from: layers) else {
+/// 		// Uh-oh! Error occurred.
+///  	}
+///	```
 public final class OLLayers {
 
 	private var images: [Int: CIImage] = [:]
@@ -29,7 +40,7 @@ public final class OLLayers {
 	///
 	/// - Parameter images: The images to be composited, ordered by layer.
 	/// - Throws: Errors if the layers could not be organized
-	public init?(from images: [Int: String]) throws {
+	public init(from images: [Int: String]) throws {
 		// Validate dictionary
 		if !OLLayers.isLayerDictionary(images) {
 			throw OLError(.invalidDictionary)
@@ -37,17 +48,20 @@ public final class OLLayers {
 
 		// Validate images
 		for (layer, image) in images {
+			// Get the image from the asset catalog
 			guard let uiImage = UIImage(named: image) else {
 				throw OLError(.imageNotFound, imageName: image)
 			}
+			// Convert the image to CIImage
 			guard let ciImage = CIImage(image: uiImage) else {
 				throw OLError(.invalidImage, imageName: image)
 			}
+			// Add the image to the registry
 			self.images.updateValue(ciImage, forKey: layer)
 		}
 	}
 
-	/// Validate a layer dictionary
+	/// Validate a layer dictionary.
 	///
 	/// - Parameter dictionary: The dictionary to validate
 	/// - Returns: False if the dictionary is invalid
