@@ -8,13 +8,14 @@
 
 import Foundation
 
+///
 /// ## Overview
 /// An object that represents images in layered order.
 ///
 /// These images can then be used by OLImage to create a composite image.
 /// ## Create from Asset Catalog
 ///
-/// Create a new layer object using images from the Asset catalog:
+/// ### Create a new layer object using images from the Asset catalog:
 ///
 /// ```swift
 ///		let layers = [0: "Background Image", 1: "Overlay Image"]
@@ -22,6 +23,26 @@ import Foundation
 /// 		// Uh-oh! Error occurred.
 ///  	}
 ///	```
+///
+/// ## Create from UIImage Objects
+///
+/// ### Create a new layer object using images from UIImages:
+///
+/// ```swift
+///		let layers = [0: image1, 1: image2]
+///		guard let olLayers = try? OLLayers(from: layers) else {
+/// 		// Uh-oh! Error occurred.
+///  	}
+///	```
+///
+/// ## Manipulating Layers
+///
+/// ### Accessing layers:
+/// ```swift
+///		olLayers.layer(0)
+/// ```
+/// Returns a UIImage of layer 0.
+///
 public final class OLLayers {
 
 	private var images: [Int: CIImage] = [:]
@@ -156,6 +177,10 @@ public final class OLLayers {
 	///
 	/// - Parameter layer: The layer to remove
 	public func removeLayer(_ layer: Int) {
+		// Make sure the layer exisits before doing changes
+		guard images[layer] != nil else {
+			return
+		}
 		images.removeValue(forKey: layer)
 		// Shift all the layers down
 		var updatedImages: [Int: CIImage] = [:]
