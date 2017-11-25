@@ -15,6 +15,9 @@ class OLCore {
 
 	/// Generate bitmaps and create a UIImage for a CIImage.
 	///
+	/// **Note:** Conversion can be an expensive task, especially on non-Metal devices.
+	/// It is recommended that this be done asynchronously, to avoid blocking the UI.
+	///
 	/// - Parameter image: The CIImage to convert
 	/// - Returns: The converted UIImage, nil if error occurred
 	public class func convert(image: CIImage) -> UIImage? {

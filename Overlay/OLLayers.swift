@@ -134,14 +134,14 @@ public final class OLLayers {
 	public func removeLayer(_ layer: Int) {
 		images.removeValue(forKey: layer)
 		// Shift all the layers down
-		var newImages: [Int: CIImage] = [:]
+		var updatedImages: [Int: CIImage] = [:]
 		for (key, image) in images where key < layer {
-			newImages.updateValue(image, forKey: key)
+			updatedImages.updateValue(image, forKey: key)
 		}
 		for (key, image) in images where key > layer {
-			newImages.updateValue(image, forKey: key - 1)
+			updatedImages.updateValue(image, forKey: key - 1)
 		}
-		images = newImages
+		images = updatedImages
 	}
 
 	// MARK: - Helpers
