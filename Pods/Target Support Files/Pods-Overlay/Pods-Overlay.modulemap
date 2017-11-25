@@ -1,0 +1,6 @@
+framework module Pods_Overlay {
+  umbrella header "Pods-Overlay-umbrella.h"
+
+  export *
+  module * { export * }
+}

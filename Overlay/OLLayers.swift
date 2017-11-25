@@ -128,6 +128,30 @@ public final class OLLayers {
 		images.updateValue(ciImage, forKey: images.count)
 	}
 
+	/// Insert a layer at a given index, nondestructivly.
+	///
+	/// - Parameters:
+	///   - image: The image to insert.
+	///   - layer: The layer to insert it at. All other layers will be moved up, no layers will be overwritten.
+	/// - Throws: An error if the image could not be read
+	public func insertLayer(_ image: UIImage, at layer: Int) throws {
+		// Convert the image
+		guard let ciImage = CIImage(image: image) else {
+			throw OLError(.invalidImage)
+		}
+
+		// Insert the image
+		var updatedImages: [Int: CIImage] = [:]
+		for (key, image) in images where key < layer {
+			updatedImages.updateValue(image, forKey: key)
+		}
+		for (key, image) in images where key >= layer {
+			updatedImages.updateValue(image, forKey: key + 1)
+		}
+		updatedImages.updateValue(ciImage, forKey: layer)
+		images = updatedImages
+	}
+
 	/// Remove a given layer
 	///
 	/// - Parameter layer: The layer to remove
