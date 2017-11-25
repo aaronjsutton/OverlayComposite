@@ -27,15 +27,16 @@ class ViewController: UIViewController {
 		let layers =
 			[
 				0: UIImage(named: "Square")!,
-				1: UIImage(named: "Triangle")!
+				1: UIImage(named: "Triangle")!,
+				2: UIImage(named: "Polygon")!
 			]
 		guard let compositeLayers = try? OLLayers(with: layers) else {
 			return
 		}
-		try? compositeLayers.appendLayer(UIImage(named: "Polygon")!)
-		compositeLayers.removeLayer(1)
+		compositeLayers.removeLayer(0)
+
 		DispatchQueue.global(qos: .userInitiated).async {
-			let image = compositeLayers.layer(1) ?? UIImage(named: "Square")!
+			let image = compositeLayers.layer(0) ?? UIImage(named: "Square")!
 			DispatchQueue.main.async {
 				self.imageView.image = image
 			}
