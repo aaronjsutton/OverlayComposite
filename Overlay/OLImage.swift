@@ -16,6 +16,9 @@ import CoreImage
 /// 
 public final class OLImage {
 
+	/// <#Description#>
+	///
+	/// - Parameter layers: <#layers description#>
 	init(with layers: OLLayers) {
 
 	}

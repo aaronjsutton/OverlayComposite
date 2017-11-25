@@ -115,6 +115,19 @@ public final class OLLayers {
 		return result
 	}
 
+	/// Append a layer to the end of the dictionary, making it the topmost image
+	///
+	/// - Parameter image: The image to append
+	/// - Throws: An error if the image could not be created.
+	public func appendLayer(_ image: UIImage) throws {
+		// Convert the image
+		guard let ciImage = CIImage(image: image) else {
+			throw OLError(.invalidImage)
+		}
+		// Append the image
+		images.updateValue(ciImage, forKey: images.count)
+	}
+
 	// MARK: - Helpers
 
 	/// Validate a layer dictionary.
