@@ -128,6 +128,18 @@ public final class OLLayers {
 		images.updateValue(ciImage, forKey: images.count)
 	}
 
+	/// Remove a given layer
+	///
+	/// - Parameter layer: The layer to remove
+	public func removeLayer(_ layer: Int) {
+		images.removeValue(forKey: layer)
+		// Shift all the layers down
+		for (key, image) in images where key > layer {
+			images.removeValue(forKey: key)
+			images.updateValue(image, forKey: key - 1)
+		}
+	}
+
 	// MARK: - Helpers
 
 	/// Validate a layer dictionary.
