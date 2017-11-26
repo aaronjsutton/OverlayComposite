@@ -9,7 +9,7 @@
 import Foundation
 
 /// Errors thrown by Overlay classes
-public struct OLError: Error {
+public struct OverlayError: Error {
 
 	/// The type of error that occurred
 	public enum ErrorType: String {

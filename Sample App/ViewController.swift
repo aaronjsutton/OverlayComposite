@@ -30,7 +30,7 @@ class ViewController: UIViewController {
 				1: UIImage(named: "Triangle")!,
 				2: UIImage(named: "Polygon")!
 			]
-		guard let compositeLayers = try? OLLayers(with: layers) else {
+		guard let compositeLayers = try? Layers(with: layers) else {
 			return
 		}
 		try? compositeLayers.insertLayer(UIImage(named: "Polygon")!, at: 1)

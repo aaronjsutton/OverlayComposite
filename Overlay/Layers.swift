@@ -43,7 +43,7 @@ import Foundation
 /// ```
 /// Returns a UIImage of layer 0.
 ///
-public final class OLLayers {
+public final class Layers {
 
 	private var images: [Int: CIImage] = [:]
 
@@ -70,19 +70,19 @@ public final class OLLayers {
 	/// - Throws: Errors if the layers could not be organized
 	public init(from images: [Int: String]) throws {
 		// Validate dictionary
-		if !OLLayers.isLayerDictionary(images) {
-			throw OLError(.invalidDictionary)
+		if !Layers.isLayerDictionary(images) {
+			throw OverlayError(.invalidDictionary)
 		}
 
 		// Validate images
 		for (layer, image) in images {
 			// Get the image from the asset catalog
 			guard let uiImage = UIImage(named: image) else {
-				throw OLError(.imageNotFound, imageName: image)
+				throw OverlayError(.imageNotFound, imageName: image)
 			}
 			// Convert the image to CIImage
 			guard let ciImage = CIImage(image: uiImage) else {
-				throw OLError(.invalidImage, imageName: image)
+				throw OverlayError(.invalidImage, imageName: image)
 			}
 			// Add the image to the registry
 			self.images.updateValue(ciImage, forKey: layer)
@@ -105,15 +105,15 @@ public final class OLLayers {
 	/// - Throws: Errors if the layers could not be organized
 	public init(with images: [Int: UIImage]) throws {
 		// Validate dictionary
-		if !OLLayers.isLayerDictionary(images) {
-			throw OLError(.invalidDictionary)
+		if !Layers.isLayerDictionary(images) {
+			throw OverlayError(.invalidDictionary)
 		}
 
 		// Validate images
 		for (layer, image) in images {
 			// Convert the image to CIImage
 			guard let ciImage = CIImage(image: image) else {
-				throw OLError(.invalidImage)
+				throw OverlayError(.invalidImage)
 			}
 			// Add the image to the registry
 			self.images.updateValue(ciImage, forKey: layer)
@@ -130,7 +130,7 @@ public final class OLLayers {
 		guard let image = images[layer] else {
 			return
 		}
-		OLCore.convert(image: image) { result in
+		OverlayCore.convert(image: image) { result in
 			completion?(result)
 		}
 	}
@@ -142,7 +142,7 @@ public final class OLLayers {
 	public func appendLayer(_ image: UIImage) throws {
 		// Convert the image
 		guard let ciImage = CIImage(image: image) else {
-			throw OLError(.invalidImage)
+			throw OverlayError(.invalidImage)
 		}
 		// Append the image
 		images.updateValue(ciImage, forKey: images.count)
@@ -157,7 +157,7 @@ public final class OLLayers {
 	public func insertLayer(_ image: UIImage, at layer: Int) throws {
 		// Convert the image
 		guard let ciImage = CIImage(image: image) else {
-			throw OLError(.invalidImage)
+			throw OverlayError(.invalidImage)
 		}
 
 		// Insert the image

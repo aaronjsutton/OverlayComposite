@@ -1,5 +1,5 @@
 //
-//  OLCore.swift
+//  Overlay.swift
 //  Overlay
 //
 //  Created by Aaron Sutton on 11/24/17.
@@ -9,9 +9,8 @@
 import Foundation
 import CoreGraphics
 import Metal
-
-/// Basic methods for working with Image and Overlay types. 
-class OLCore {
+/// Basic methods for working with Image and Overlay types.
+class OverlayCore {
 
 	/// Generate bitmaps and create a UIImage for a CIImage.
 	///
