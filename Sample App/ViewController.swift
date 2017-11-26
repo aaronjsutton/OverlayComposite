@@ -34,12 +34,8 @@ class ViewController: UIViewController {
 			return
 		}
 		try? compositeLayers.insertLayer(UIImage(named: "Polygon")!, at: 1)
-
-		DispatchQueue.global(qos: .userInitiated).async {
-			let image = compositeLayers.layer(1) ?? UIImage(named: "Square")!
-			DispatchQueue.main.async {
-				self.imageView.image = image
-			}
+		compositeLayers.layer(1) { image in
+			self.imageView.image = image
 		}
 	}
 }

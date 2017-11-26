@@ -126,14 +126,13 @@ public final class OLLayers {
 	///
 	/// - Parameter layer: The layer number to retrieve
 	/// - Returns: The layer. Nil if the layer does not exist.
-	public func layer(_ layer: Int) -> UIImage? {
+	public func layer(_ layer: Int, completion: ((_ image: UIImage) -> Void)? = nil) {
 		guard let image = images[layer] else {
-			return nil
+			return
 		}
-		guard let result = OLCore.convert(image: image) else {
-			return nil
+		OLCore.convert(image: image) { result in
+			completion?(result)
 		}
-		return result
 	}
 
 	/// Append a layer to the end of the dictionary, making it the topmost image
@@ -181,6 +180,7 @@ public final class OLLayers {
 		guard images[layer] != nil else {
 			return
 		}
+		// Remove the layer
 		images.removeValue(forKey: layer)
 		// Shift all the layers down
 		var updatedImages: [Int: CIImage] = [:]

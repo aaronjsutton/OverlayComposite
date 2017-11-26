@@ -20,7 +20,7 @@ class OLCore {
 	///
 	/// - Parameter image: The CIImage to convert
 	/// - Returns: The converted UIImage, nil if error occurred
-	public class func convert(image: CIImage) -> UIImage? {
+	public class func convert(image: CIImage, completion: @escaping (_ image: UIImage) -> Void) {
 		let context: CIContext
 
 		// Check if the devive supports Metal
@@ -32,12 +32,18 @@ class OLCore {
 			context = CIContext.init()
 		}
 
-		// Create bitmap data
-		guard let cgImage = context.createCGImage(image, from: image.extent) else {
-			return nil
-		}
+		var cgImage: CGImage?
 
-		// Convert CGImage to UIImage and return
-		return UIImage(cgImage: cgImage)
+		DispatchQueue.global(qos: .userInitiated).async {
+			// Create bitmap data
+			cgImage = context.createCGImage(image, from: image.extent)
+			DispatchQueue.main.async {
+				if cgImage != nil {
+					completion(UIImage(cgImage: cgImage!))
+				} else {
+					return
+				}
+			}
+		}
 	}
 }
