@@ -4,6 +4,8 @@ An asynchronous, multithreaded, image compositing framework written in Swift.
 
 ## Installation
 
+### [CocoaPods](http://cocoapods.org)
+
 Add Overlay to your Podfile:
 
 `pod 'Overlay'`
