@@ -34,9 +34,6 @@
                 <a href="../Classes/Layers.html">Layers</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/OverlayCore.html">OverlayCore</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Classes/OverlayRenderer.html">OverlayRenderer</a>
               </li>
             </ul>
@@ -64,7 +61,31 @@
 
                 </div>
               </div>
-            <p>Renders Layers objects into composite images.</p>
+            <h2 id='overview' class='heading'>Overview</h2>
+
+<p>Render <a href="Layers.html">Layers</a> objects into single, usable images.</p>
+
+<p><strong>Note</strong>: Creating renderer objects can be an expensive task.
+It is recommeneded that you minimize creation of renderer objects for optimum performance.</p>
+<h1 id='examples' class='heading'>Examples</h1>
+<h2 id='rendering-a-layers-object' class='heading'>Rendering a Layers Object</h2>
+<pre class="highlight swift"><code><span class="c1">// Create a new render object</span>
+<span class="k">let</span> <span class="nv">renderer</span> <span class="o">=</span> <span class="kt">OverlayRenderer</span><span class="p">()</span>
+<span class="c1">// Render an image</span>
+<span class="n">renderer</span><span class="o">.</span><span class="nf">composite</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="n">myLayers</span><span class="p">)</span> <span class="p">{</span> <span class="n">result</span> <span class="k">in</span>
+    <span class="c1">// Access the UIImage result here</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>Renders <code>myLayers</code> to a UIImage.</p>
+<h2 id='standalone-conversion' class='heading'>Standalone Conversion</h2>
+<pre class="highlight swift"><code><span class="c1">// Convert an image</span>
+<span class="kt">OverlayRenderer</span><span class="o">.</span><span class="nf">convert</span><span class="p">(</span><span class="n">myCiImage</span><span class="p">)</span> <span class="p">{</span> <span class="n">result</span> <span class="k">in</span>
+    <span class="c1">// Access the UIImage result here</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>Converts <code>myCiImage</code> to a UIImage.</p>
 
           </section>
           <section class="section task-group-section">
@@ -155,12 +176,87 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Overlay0A8RendererC7convertySo7CIImageC5image_So9CIContextCSgySo7UIImageCc10completiontFZ"></a>
+                    <a name="//apple_ref/swift/Method/convert(image:_:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Overlay0A8RendererC7convertySo7CIImageC5image_So9CIContextCSgySo7UIImageCc10completiontFZ">convert(image:_:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Convert a CIImage to a UIImage.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">convert</span><span class="p">(</span>
+														<span class="nv">image</span><span class="p">:</span> <span class="kt">CIImage</span><span class="p">,</span>
+														<span class="n">_</span> <span class="nv">contextToUse</span><span class="p">:</span> <span class="kt">CIContext</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+														<span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="n">_</span> <span class="nv">image</span><span class="p">:</span> <span class="kt">UIImage</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>image</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The image convert.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>context</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The optional context to use. If possible,
+use a preexisting context for performance. If one is not avalible, pass nil and a
+new context will be created.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Passes the completed render.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2017 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2017-11-26)</p>
+          <p>&copy; 2017 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2017-11-27)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.4</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

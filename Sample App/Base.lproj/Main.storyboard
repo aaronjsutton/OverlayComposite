@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13770" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="ipad10_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,27 +15,27 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Sample_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overlay Sample App" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKQ-CE-vjp">
-                                <rect key="frame" x="110" y="149" width="155" height="22"/>
+                                <rect key="frame" x="339.5" y="149" width="155" height="22"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Square" translatesAutoresizingMaskIntoConstraints="NO" id="Q7I-z6-xKq">
-                                <rect key="frame" x="71" y="243" width="232" height="181"/>
+                                <rect key="frame" x="71" y="243" width="691" height="626"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cz9-Mr-YT3">
-                                <rect key="frame" x="145" y="479" width="86" height="30"/>
-                                <state key="normal" title="Add Triangle"/>
+                                <rect key="frame" x="333" y="924" width="168" height="30"/>
+                                <state key="normal" title="Insert Triangle at Layer 1"/>
                                 <connections>
-                                    <action selector="addTriangle" destination="BYZ-38-t0r" eventType="touchUpInside" id="Apz-ef-GgQ"/>
+                                    <action selector="insertTriangle" destination="BYZ-38-t0r" eventType="touchUpInside" id="2ze-R3-t2h"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="86i-oR-V5N">
-                                <rect key="frame" x="144" y="517" width="87" height="30"/>
+                                <rect key="frame" x="373.5" y="962" width="87" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="hd8-fb-g8a"/>
                                 </constraints>
@@ -45,34 +45,34 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Layers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T2k-HH-ph8">
-                                <rect key="frame" x="162" y="214" width="51" height="21"/>
+                                <rect key="frame" x="391.5" y="214" width="51" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TN5-TC-kbz">
-                                <rect key="frame" x="157.5" y="555" width="60" height="30"/>
-                                <state key="normal" title="Add Star"/>
+                                <rect key="frame" x="330" y="1000" width="174" height="30"/>
+                                <state key="normal" title="Replace Layer 2 with Star"/>
                                 <connections>
-                                    <action selector="addStar" destination="BYZ-38-t0r" eventType="touchUpInside" id="B7H-Ta-UtY"/>
+                                    <action selector="replaceStar" destination="BYZ-38-t0r" eventType="touchUpInside" id="6zC-uS-kD5"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3uE-xl-YkM">
-                                <rect key="frame" x="152" y="593" width="71" height="30"/>
+                                <rect key="frame" x="337" y="1038" width="160" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="MqX-oa-Dsn"/>
                                 </constraints>
-                                <state key="normal" title="Add Circle"/>
+                                <state key="normal" title="Remove Topmost Layer"/>
                                 <connections>
-                                    <action selector="addCircle" destination="BYZ-38-t0r" eventType="touchUpInside" id="5UW-6H-Cgv"/>
+                                    <action selector="removeTopmost" destination="BYZ-38-t0r" eventType="touchUpInside" id="stR-Tj-gy2"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Df-Ef-fDo">
-                                <rect key="frame" x="170" y="441" width="36" height="30"/>
+                                <rect key="frame" x="397.5" y="886" width="39" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="pzG-zx-PyW"/>
                                 </constraints>
-                                <state key="normal" title="Clear"/>
+                                <state key="normal" title="Reset"/>
                                 <connections>
                                     <action selector="clear" destination="BYZ-38-t0r" eventType="touchUpInside" id="uBT-cu-g8O"/>
                                 </connections>
@@ -91,7 +91,6 @@
                             <constraint firstItem="3uE-xl-YkM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="TJK-x1-3jy"/>
                             <constraint firstItem="LKQ-CE-vjp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="129" id="VEh-nQ-8yJ"/>
                             <constraint firstItem="Q7I-z6-xKq" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="VSS-O7-ovL"/>
-                            <constraint firstItem="Q7I-z6-xKq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZfG-ht-acD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Q7I-z6-xKq" secondAttribute="trailing" constant="72" id="Zyz-2u-SYM"/>
                             <constraint firstItem="6Df-Ef-fDo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bKI-yp-wKx"/>
                             <constraint firstItem="Q7I-z6-xKq" firstAttribute="top" secondItem="LKQ-CE-vjp" secondAttribute="bottom" constant="72" id="dSk-Eb-Cnb"/>
