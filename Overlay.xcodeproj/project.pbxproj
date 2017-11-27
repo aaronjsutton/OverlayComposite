@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		856C69EA72A587EBD7137D25 /* Pods_Overlay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EDF167E419179F43055D812 /* Pods_Overlay.framework */; };
-		CC6B42E81FCB5F6200ECBFE3 /* OverlayCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6B42E71FCB5F6200ECBFE3 /* OverlayCore.swift */; };
 		CC9992CF1FC863130093CE18 /* Overlay.h in Headers */ = {isa = PBXBuildFile; fileRef = CC9992CD1FC863130093CE18 /* Overlay.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CC9993111FC86D890093CE18 /* Layers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9993101FC86D890093CE18 /* Layers.swift */; };
 		CC9993131FC8707A0093CE18 /* OverlayError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9993121FC8707A0093CE18 /* OverlayError.swift */; };
@@ -21,7 +20,6 @@
 		4B4A7BD4863213F12EC35FE5 /* Pods-Overlay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Overlay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Overlay/Pods-Overlay.debug.xcconfig"; sourceTree = "<group>"; };
 		57E10C04BC5E39271E1E6D05 /* Pods_Sample_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sample_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		864BCD2892254954A00118CA /* Pods-Sample App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sample App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sample App/Pods-Sample App.release.xcconfig"; sourceTree = "<group>"; };
-		CC6B42E71FCB5F6200ECBFE3 /* OverlayCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayCore.swift; sourceTree = "<group>"; };
 		CC9992CA1FC863130093CE18 /* Overlay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Overlay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC9992CD1FC863130093CE18 /* Overlay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Overlay.h; sourceTree = "<group>"; };
 		CC9992CE1FC863130093CE18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -87,9 +85,8 @@
 				CC9992CD1FC863130093CE18 /* Overlay.h */,
 				CC9992CE1FC863130093CE18 /* Info.plist */,
 				CC9993101FC86D890093CE18 /* Layers.swift */,
-				CC6B42E71FCB5F6200ECBFE3 /* OverlayCore.swift */,
-				CC9993121FC8707A0093CE18 /* OverlayError.swift */,
 				CCABE34B1FCB678C00D5EB43 /* OverlayRenderer.swift */,
+				CC9993121FC8707A0093CE18 /* OverlayError.swift */,
 			);
 			path = Overlay;
 			sourceTree = "<group>";
@@ -228,7 +225,6 @@
 				CCABE34C1FCB678C00D5EB43 /* OverlayRenderer.swift in Sources */,
 				CC9993131FC8707A0093CE18 /* OverlayError.swift in Sources */,
 				CC9993111FC86D890093CE18 /* Layers.swift in Sources */,
-				CC6B42E81FCB5F6200ECBFE3 /* OverlayCore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

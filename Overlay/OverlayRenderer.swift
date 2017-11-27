@@ -10,13 +10,40 @@ import Foundation
 import CoreImage
 import Metal
 
-/// Renders Layers objects into composite images.
+/// ## Overview
+/// Render [Layers](Layers.html) objects into single, usable images.
+///
+/// **Note**: Creating renderer objects can be an expensive task.
+/// It is recommeneded that you minimize creation of renderer objects for optimum performance.
+///
+/// # Examples
+///
+/// ## Rendering a Layers Object
+/// ```swift
+/// // Create a new render object
+///	let renderer = OverlayRenderer()
+/// // Render an image
+///	renderer.composite(from: myLayers) { result in
+///		// Access the UIImage result here
+/// }
+///	```
+/// Renders `myLayers` to a UIImage.
+///
+/// ## Standalone Conversion
+/// ```swift
+/// // Convert an image
+///	OverlayRenderer.convert(myCiImage) { result in
+///		// Access the UIImage result here
+/// }
+///	```
+/// Converts `myCiImage` to a UIImage.
+///
 public final class OverlayRenderer {
 
 	let context: CIContext
 	let filter: CIFilter
 
-	/// Initialize a new renderer.
+	/// Create a new renderer object.
 	public init() {
 		// Check if the devive supports Metal
 		if let mtlDevice = MTLCreateSystemDefaultDevice() {
@@ -36,7 +63,7 @@ public final class OverlayRenderer {
 	///   - completion: Passes the completed render.
 	public func composite(from layers: Layers, completion: @escaping (_ result: UIImage) -> Void) {
 		// Check the layers
-		guard valid(layers) else {
+		guard OverlayRenderer.valid(layers) else {
 			layers.layer(0) { result in
 				completion(result)
 			}
@@ -53,8 +80,53 @@ public final class OverlayRenderer {
 			rendered += 1
 		}
 		// Conver the final result
-		OverlayCore.convert(image: workingRender) { result in
+		OverlayRenderer.convert(image: workingRender, context) { result in
 			completion(result)
+		}
+	}
+
+	/// Convert a CIImage to a UIImage.
+	///
+	/// - Parameters:
+	///   - image: The image convert.
+	///   - context: The optional context to use. If possible,
+	/// use a preexisting context for performance. If one is not avalible, pass nil and a
+	/// new context will be created.
+	///   - completion: Passes the completed render.
+	public class func convert(
+														image: CIImage,
+														_ contextToUse: CIContext? = nil,
+														completion: @escaping (_ image: UIImage) -> Void) {
+
+		var context: CIContext
+
+		// Determine the context to use
+		if contextToUse != nil {
+			context = contextToUse!
+		} else {
+			// Check if the devive supports Metal
+			if let mtlDevice = MTLCreateSystemDefaultDevice() {
+				// Use Metal enhanced context
+				context = CIContext.init(mtlDevice: mtlDevice)
+			} else {
+				// Use default context
+				context = CIContext.init()
+			}
+		}
+
+		var cgImage: CGImage?
+
+		// Render the image
+		DispatchQueue.global(qos: .userInitiated).async {
+			// Create bitmap data
+			cgImage = context.createCGImage(image, from: image.extent)
+			DispatchQueue.main.async {
+				if cgImage != nil {
+					completion(UIImage(cgImage: cgImage!))
+				} else {
+					return
+				}
+			}
 		}
 	}
 
@@ -74,7 +146,7 @@ public final class OverlayRenderer {
 	///
 	/// - Parameter layers: The Layers object to validate.
 	/// - Returns: True if valid, false if not.
-	private func valid(_ layers: Layers) -> Bool {
+	private class func valid(_ layers: Layers) -> Bool {
 		if layers.images[0] != nil && layers.images[1] != nil {
 			return true
 		} else {

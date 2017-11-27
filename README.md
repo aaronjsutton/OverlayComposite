@@ -1,4 +1,7 @@
-<img src="https://scproxy-prod.adobecc.com/api?X-Location=https%3A%2F%2Fcc-us1-prod.adobesc.com%2Fapi%2Fv1%2Fassets%2F8539b897-b12c-4d82-a313-5e4c4e8f1c60%2Frenditions%2Fjpg%2F1200?&v=1511533812035&Authorization=Bearer%20eyJ4NXUiOiJpbXNfbmExLWtleS0xLmNlciIsImFsZyI6IlJTMjU2In0.eyJpZCI6IjE1MTE1MzM1NDU0MTJfMWM2ZmI5MDQtZDI2OC00NDZiLTkwYzQtYWVkMDgzODc0NmE1X3VlMSIsImNsaWVudF9pZCI6IkNyZWF0aXZlQ2xvdWRXZWIxIiwidXNlcl9pZCI6IkNGNDQ4MDMyNThENzAzMEUwQTQ5NUQ1MEBBZG9iZUlEIiwidHlwZSI6ImFjY2Vzc190b2tlbiIsImFzIjoiaW1zLW5hMSIsImZnIjoiUjZUQURRN0pYUEhYRUFBQUFBQUFBQUFBNUE9PT09PT0iLCJtb2kiOiJlYmEyMmY1NyIsImMiOiJBOW5LU2QwSS9XbWRGZk1TakpaOEtBPT0iLCJleHBpcmVzX2luIjoiODY0MDAwMDAiLCJzY29wZSI6IkFkb2JlSUQsb3BlbmlkLGduYXYsY3JlYXRpdmVfY2xvdWQscmVhZF9vcmdhbml6YXRpb25zLGFkZGl0aW9uYWxfaW5mby5zY3JlZW5fbmFtZSxhZGRpdGlvbmFsX2luZm8uc2Vjb25kYXJ5X2VtYWlsLGFkZGl0aW9uYWxfaW5mby5yb2xlcyxzYW8uY2Nwcml2YXRlLHNhby5jY19leHRyYWN0LHNhby5jY2VfcHJpdmF0ZSxhY2NvdW50X3R5cGUsc2FvLmNjcHVibGlzaCIsImNyZWF0ZWRfYXQiOiIxNTExNTMzNTQ1NDEyIn0.av-1nigCS2Ovf5E0hEhSb6a5BHex653EOoZIFANXm3ljwDXac8kchgb_LJxG_sam9qAyCxZ8XjVzXsOk5HltdM-2kB3lo2rDbFlX7XBuktow3VCXUlPqsUtPIcld_QHtbjF4a5du3zxppab3B3WHbzgurGXpYrsaX1Zm4pHlzKEV8tDjTlPF3CtAmP2brGTNrqRF5HqpEx0pFDMSuRyirQM0LM5Qq-tsIeGGg6QWbFZxaVOAfMd53d4KCmUrLkMxHzbbHw4s8zuUTG55hA-erbqa9BIl4uyuFbRjvA8_127JZ4LMwPT9d7rx0uW9XWDkpbaVpLcLeucVRzqdQC611w" width="400" />
+![Logo](https://docs.aaronjsutton.com/overlay/img/logo.png)
+
+[![Build Status](https://travis-ci.org/aaronjsutton/Overlay.svg?branch=master)](https://travis-ci.org/aaronjsutton/Overlay)
+![Pod](https://cocoapod-badges.herokuapp.com/v/OverlayComposite/badge.png)
 
 An asynchronous, multithreaded, image compositing framework written in Swift.
 
@@ -8,12 +11,89 @@ An asynchronous, multithreaded, image compositing framework written in Swift.
 
 Add Overlay to your Podfile:
 
-`pod 'Overlay'`
+```ruby
+pod 'OverlayComposite'
+```
 
-And run
-
-`pod install`
+And run `pod install`
 
 ## Usage
 
-## Development
+### Quick Start
+
+#### Creating Layers
+
+Overlay works using the concept of _layered images_. Each layer represents an individual image that can then be added atop another layer. You can think of this like layers in Photoshop, or similar image editor.
+
+For example, take the following model:
+
+![Layer 0](https://docs.aaronjsutton.com/overlay/img/example.png)
+
+- Layer 0: A large blue square
+- Layer 1: A medium orange triangle
+- Layer 2: A small green polygon
+
+_Technical Note:_ For this guide, we will assume that these images are named "Square", "Triangle", and "Polygon" in our app's Asset Catalog, and they are all formatted as PNG images with a transparent background.
+
+A collection of images organized into layers is represented in code using the `Layers` class.
+
+```swift
+// Create a dictionary of all the images and layers we want to create.
+// This will then be passed to Layers
+let layerDictionary: [Int: String] =
+[
+  0: "Square",
+  1: "Triangle",
+  2: "Polygon"
+]
+
+// Create the new layers object.
+guard let layers = try? Layers(named: layerDictionary) else {
+  // Some error occurred
+  return
+}
+```
+
+Alternatively, you could create a dictionary using UIImage objects:
+```swift
+let layerDictionary: [Int: UIImage]
+```
+And pass it to `Layers.init(with:)`
+
+_Now we have a layered image represented in Swift!_
+
+#### Rendering Layers
+
+Of course, we want to be able to use our new composite image. To do that we use `OverlayRenderer`
+
+```swift
+// Create a new renderer
+let renderer = OverlayRenderer()
+
+renderer.composite(from: layers) { result in
+  // Here we can access the completed render
+}
+```
+
+The result:
+
+![Result](https://docs.aaronjsutton.com/overlay/img/result.png)
+
+To see this in action, check out the Sample App included in the source code.
+
+#### Layer Operations
+
+You can insert, append, and remove layers from a `Layers` object.
+See the [Layers Guide](https://docs.aaronjsutton.com/overlay/Classes/Layers.html)
+
+### [API Documentation](https://docs.aaronjsutton.com/overlay/)
+
+## Contributing
+
+#### Pull Requests
+
+If you wish to contribute to Overlay, create a new branch, implement your feature or fix, and then submit a pull request.
+
+#### Documentation
+
+Generate documentation with [Jazzy](https://github.com/realm/jazzy)

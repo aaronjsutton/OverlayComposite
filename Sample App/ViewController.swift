@@ -29,23 +29,23 @@ class ViewController: UIViewController {
 		clear()
 	}
 
-	@IBAction func addTriangle() {
-		try? layers.appendLayer(UIImage(named: "Triangle")!)
+	@IBAction func insertTriangle() {
+		try? layers.insertLayer(named: "Triangle", at: 1)
 		update()
 	}
 
 	@IBAction func addPolygon() {
-		try? layers.appendLayer(UIImage(named: "Polygon")!)
+		try? layers.appendLayer(named: "Polygon")
 		update()
 	}
 
-	@IBAction func addStar() {
-		try? layers.appendLayer(UIImage(named: "Star")!)
+	@IBAction func replaceStar() {
+		try? layers.updateLayer(2, named: "Star")
 		update()
 	}
 
-	@IBAction func addCircle() {
-		try? layers.appendLayer(UIImage(named: "Circle")!)
+	@IBAction func removeTopmost() {
+		layers.removeLayer(layers.count - 1)
 		update()
 	}
 
@@ -65,6 +65,9 @@ class ViewController: UIViewController {
 		label.text = "Layers: " + String(layers.count)
 		renderer.composite(from: layers) { result in
 			self.imageView.image = result
+		}
+		if layers.count == 0 {
+			self.imageView.image = nil
 		}
 	}
 }

@@ -1,3 +1,7 @@
 .DS_Store
 Overlay.xcworkspace/xcuserdata/
+Podfile
+Pods
+Podfile.lock
 build/
+docs/
