@@ -9,15 +9,15 @@
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
-		<key>Sample App.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>3</integer>
-		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>CC9992DA1FC8692F0093CE18</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CC9992FA1FC86A9D0093CE18</key>
 		<dict>
 			<key>primary</key>
 			<true/>
