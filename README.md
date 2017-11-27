@@ -20,6 +20,8 @@ And run `pod install`
 
 ### Quick Start
 
+#### Creating Layers
+
 Overlay works using the concept of _layered images_. Each layer represents an individual image that can then be added atop another layer. You can think of this like layers in Photoshop, or similar image editor.
 
 For example, take the following model:
@@ -28,7 +30,7 @@ For example, take the following model:
 
 - Layer 0: A large blue square
 - Layer 1: A medium orange triangle
-- Layer 2: A small
+- Layer 2: A small green polygon
 
 _Technical Note:_ For this guide, we will assume that these images are named "Square", "Triangle", and "Polygon" in our app's Asset Catalog, and they are all formatted as PNG images with a transparent background.
 
@@ -59,9 +61,9 @@ And pass it to `Layers.init(with:)`
 
 _Now we have a layered image represented in Swift!_
 
-Of course, we want to be able to use our new composite image. To do that we use `OverlayRenderer`
+#### Rendering Layers
 
-To render our layers object:
+Of course, we want to be able to use our new composite image. To do that we use `OverlayRenderer`
 
 ```swift
 // Create a new renderer
@@ -72,9 +74,16 @@ renderer.composite(from: layers) { result in
 }
 ```
 
-This produces:
+The result:
 
 ![Result](/Images/ExampleComposite.png)
+
+To see this in action, check out the Sample App included in the source code.
+
+#### Layer Operations
+
+You can insert, append, and remove layers from a `Layers` object.
+See the [Layers Guide](https://docs.aaronjsutton.com/overlay/Classes/Layers.html)
 
 ### [API Documentation](https://docs.aaronjsutton.com/overlay/)
 
