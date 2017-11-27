@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  s.name         = "Overlay"
+  s.name         = "OverlayComposite"
   s.version      = "1.0.0"
   s.summary      = "An asynchronous, multithreaded, image compositing framework written in Swift."
 
