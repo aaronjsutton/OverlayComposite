@@ -1,7 +1,8 @@
 ![Logo](https://docs.aaronjsutton.com/overlay/img/logo.png)
 
 [![Build Status](https://travis-ci.org/aaronjsutton/Overlay.svg?branch=master)](https://travis-ci.org/aaronjsutton/Overlay)
-![Pod](https://cocoapod-badges.herokuapp.com/v/OverlayComposite/badge.png)
+[![CocoaPods](https://img.shields.io/cocoapods/v/OverlayComposite.svg)]()
+
 
 An asynchronous, multithreaded, image compositing framework written in Swift.
 
