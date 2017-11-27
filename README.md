@@ -24,7 +24,8 @@ And run `pod install`
 ### Documentation and Examples
 
 A Sample App is included in the source code.
-Clone and open Overlay.xcworkspace to run.
+
+Clone and open `Overlay.xcworkspace` to run.
 
 [Overlay Docs](https://docs.aaronjsutton.com/overlay/)
 
