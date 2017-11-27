@@ -20,3 +20,5 @@ And run `pod install`
 ## Usage
 
 ## Development
+
+If you wish to contribute to Overlay, create a new branch, implement your feature or fix, and then submit a pull request.
