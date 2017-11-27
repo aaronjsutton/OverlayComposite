@@ -1,6 +1,7 @@
 ![Logo](https://docs.aaronjsutton.com/overlay/img/logo.png)
 
 [![Build Status](https://travis-ci.org/aaronjsutton/Overlay.svg?branch=master)](https://travis-ci.org/aaronjsutton/Overlay)
+![Pod](https://cocoapod-badges.herokuapp.com/v/OverlayComposite/badge.png)
 
 An asynchronous, multithreaded, image compositing framework written in Swift.
 
@@ -11,7 +12,7 @@ An asynchronous, multithreaded, image compositing framework written in Swift.
 Add Overlay to your Podfile:
 
 ```ruby
-pod 'Overlay'
+pod 'OverlayComposite'
 ```
 
 And run `pod install`
