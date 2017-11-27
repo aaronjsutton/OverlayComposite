@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// ## Overview
 /// Errors thrown by Overlay classes
 public struct OverlayError: Error {
 
@@ -27,6 +28,7 @@ public struct OverlayError: Error {
 	/// Optional image name to include in the error throw
 	public let imageName: String? = nil
 
+	/// ## Overview
 	/// Create a new error object
 	///
 	/// - Parameters:

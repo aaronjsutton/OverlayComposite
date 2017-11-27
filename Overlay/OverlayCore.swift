@@ -9,16 +9,26 @@
 import Foundation
 import CoreGraphics
 import Metal
-/// Basic methods for working with Image and Overlay types.
-class OverlayCore {
 
-	/// Generate bitmaps and create a UIImage for a CIImage.
+/// Basic methods for working with Image and Overlay types.
+public final class OverlayCore {
+
+	/// ## Overview
+	/// Convert a CIImage to UIImage.
 	///
-	/// **Note:** Conversion can be an expensive task, especially on non-Metal devices.
-	/// It is recommended that this be done asynchronously, to avoid blocking the UI.
+	/// ## Example
 	///
-	/// - Parameter image: The CIImage to convert
-	/// - Returns: The converted UIImage, nil if error occurred
+	/// #### Convert an image:
+	///
+	/// ```swift
+	///	OverlayCore.convert(image: myCiImage) { result in
+	///		// access to the converted image result
+	/// }
+	/// ```
+	///
+	/// - Parameters:
+	///   - image: The image to convert.
+	///   - completion: Passes the converted image.
 	public class func convert(image: CIImage, completion: @escaping (_ image: UIImage) -> Void) {
 		let context: CIContext
 

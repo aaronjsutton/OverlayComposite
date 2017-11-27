@@ -19,7 +19,7 @@ import Foundation
 ///
 /// ```swift
 ///		let layers = [0: "Background Image", 1: "Overlay Image"]
-///		guard let olLayers = try? OLLayers(from: layers) else {
+///		guard let layers = try? OLLayers(from: layers) else {
 /// 		// Uh-oh! Error occurred.
 ///  	}
 ///	```
@@ -30,7 +30,7 @@ import Foundation
 ///
 /// ```swift
 ///		let layers = [0: image1, 1: image2]
-///		guard let olLayers = try? OLLayers(from: layers) else {
+///		guard let layers = try? OLLayers(from: layers) else {
 /// 		// Uh-oh! Error occurred.
 ///  	}
 ///	```
@@ -39,7 +39,7 @@ import Foundation
 ///
 /// ### Accessing layers:
 /// ```swift
-///		olLayers.layer(0)
+///		layers.layer(0)
 /// ```
 /// Returns a UIImage of layer 0.
 ///
