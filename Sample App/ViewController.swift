@@ -12,10 +12,16 @@ import Overlay
 class ViewController: UIViewController {
 
 	@IBOutlet weak var imageView: UIImageView!
+	@IBOutlet weak var label: UILabel!
+
+	var layers: Layers!
+	var renderer: OverlayRenderer!
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
+		renderer = OverlayRenderer()
+		clear()
 	}
 
 	override func didReceiveMemoryWarning() {
@@ -23,19 +29,42 @@ class ViewController: UIViewController {
 		// Dispose of any resources that can be recreated.
 	}
 
-	@IBAction func addOverlay() {
-		let layers =
+	@IBAction func addTriangle() {
+		try? layers.appendLayer(UIImage(named: "Triangle")!)
+		update()
+	}
+
+	@IBAction func addPolygon() {
+		try? layers.appendLayer(UIImage(named: "Polygon")!)
+		update()
+	}
+
+	@IBAction func addStar() {
+		try? layers.appendLayer(UIImage(named: "Star")!)
+		update()
+	}
+
+	@IBAction func addCircle() {
+		try? layers.appendLayer(UIImage(named: "Circle")!)
+		update()
+	}
+
+	@IBAction func clear() {
+		let layerDictionary =
 			[
 				0: UIImage(named: "Square")!,
-				1: UIImage(named: "Triangle")!,
-				2: UIImage(named: "Polygon")!
 			]
-		guard let compositeLayers = try? Layers(with: layers) else {
+		guard let compositeLayers = try? Layers(with: layerDictionary) else {
 			return
 		}
-		try? compositeLayers.insertLayer(UIImage(named: "Polygon")!, at: 1)
-		compositeLayers.layer(1) { image in
-			self.imageView.image = image
+		layers = compositeLayers
+		update()
+	}
+
+	func update() {
+		label.text = "Layers: " + String(layers.count)
+		renderer.composite(from: layers) { result in
+			self.imageView.image = result
 		}
 	}
 }

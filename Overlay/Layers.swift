@@ -45,7 +45,7 @@ import Foundation
 ///
 public final class Layers {
 
-	private var images: [Int: CIImage] = [:]
+	internal var images: [Int: CIImage] = [:]
 
 	/// The number of layers. 
 	public var count: Int {
@@ -172,7 +172,7 @@ public final class Layers {
 		images = updatedImages
 	}
 
-	/// Remove a given layer
+	/// Remove a given layer.
 	///
 	/// - Parameter layer: The layer to remove
 	public func removeLayer(_ layer: Int) {
