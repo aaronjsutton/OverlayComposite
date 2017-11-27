@@ -7,7 +7,7 @@
     <meta charset='utf-8'>
     <script src="js/jquery.min.js" defer></script>
     <script src="js/jazzy.js" defer></script>
-
+    
   </head>
   <body>
     <a title="  Reference"></a>
@@ -54,8 +54,8 @@
       <article class="main-content">
         <section>
           <section class="section">
-
-            <p><br /><img src="https://camo.githubusercontent.com/55275160355d9b72f49637ef04a718dac61fadd8/68747470733a2f2f736370726f78792d70726f642e61646f626563632e636f6d2f6170693f582d4c6f636174696f6e3d687474707325334125324625324663632d7573312d70726f642e61646f626573632e636f6d253246617069253246763125324661737365747325324638353339623839372d623132632d346438322d613331332d35653463346538663163363025324672656e646974696f6e732532466a7067253246313230303f26763d3135313135333338313230333526417574686f72697a6174696f6e3d42656172657225323065794a344e5855694f694a7062584e66626d45784c57746c655330784c6d4e6c63694973496d46735a794936496c4a544d6a5532496e302e65794a705a434936496a45314d5445314d7a4d314e4455304d544a664d574d325a6d49354d4451745a4449324f4330304e445a694c546b77597a51745957566b4d44677a4f4463304e6d45315833566c4d534973496d4e7361575675644639705a434936496b4e795a57463061585a6c51327876645752585a5749784969776964584e6c636c39705a434936496b4e474e4451344d444d794e5468454e7a417a4d455577515451354e5551314d4542425a4739695a556c454969776964486c775a534936496d466a5932567a633139306232746c62694973496d467a496a6f696157317a4c5735684d534973496d5a6e496a6f69556a5a55515552524e30705955456859525546425155464251554642515546424e55453950543039505430694c434a7462326b694f694a6c596d45794d6d59314e794973496d4d694f694a424f57354c5532517753533958625752475a6b3154616b70614f457442505430694c434a6c65484270636d567a58326c75496a6f694f4459304d4441774d4441694c434a7a593239775a534936496b466b62324a6c535551736233426c626d6c6b4c4764755958597359334a6c59585270646d56665932787664575173636d56685a463976636d6468626d6c36595852706232357a4c47466b5a476c3061573975595778666157356d6279357a59334a6c5a573566626d46745a5378685a47527064476c76626d467358326c755a6d38756332566a6232356b59584a355832567459576c734c47466b5a476c3061573975595778666157356d627935796232786c6379787a5957387559324e77636d6c325958526c4c484e686279356a5931396c6548527959574e304c484e686279356a5932566663484a70646d46305a53786859324e76645735305833523563475573633246764c6d4e6a6348566962476c7a61434973496d4e795a5746305a575266595851694f6949784e5445784e544d7a4e5451314e444579496e302e61762d316e69674353324f7666354530684568536236613542486578363533454f6f5a4946414e586d336c6a7744586163386b636867625f4c4a78475f73616d3971417943785a38586a567a58734f6b35486c74644d2d326b42336c6f32724462466c58375842756b746f7733564358556c50717355745049636c645f514874626a463461356475337a78707061623342335748627a6775724758705972736158315a6d3470486c7a4b45563874446a546c5046334374416d5032627247544e72715246354871704578307046444d537552796972514d304c4d3551712d7473496547476736515762465a7861564f41664d64353364344b436d55724c6b4d78487a626248773473387a75555447353568412d65726271613942496c347579754662526a7641385f3132374a5a344c4d7750543964377278307557395857446b70626156704c634c65756356527a7164514336313177" width="400" /></p>
+            
+            <p><img src="/docs/Images/Logo.png" alt="Logo"></p>
 
 <p><a href="https://travis-ci.org/aaronjsutton/Overlay"><img src="https://travis-ci.org/aaronjsutton/Overlay.svg?branch=master" alt="Build Status"></a></p>
 
@@ -69,6 +69,68 @@
 
 <p>And run <code>pod install</code></p>
 <h2 id='usage' class='heading'>Usage</h2>
+<h3 id='quick-start' class='heading'>Quick Start</h3>
+<h4 id='creating-layers' class='heading'>Creating Layers</h4>
+
+<p>Overlay works using the concept of <em>layered images</em>. Each layer represents an individual image that can then be added atop another layer. You can think of this like layers in Photoshop, or similar image editor.</p>
+
+<p>For example, take the following model:</p>
+
+<p><img src="/docs/Images/Example.png" alt="Layer 0"></p>
+
+<ul>
+<li>Layer 0: A large blue square</li>
+<li>Layer 1: A medium orange triangle</li>
+<li>Layer 2: A small green polygon</li>
+</ul>
+
+<p><em>Technical Note:</em> For this guide, we will assume that these images are named <q>Square</q>, <q>Triangle</q>, and <q>Polygon</q> in our app&rsquo;s Asset Catalog, and they are all formatted as PNG images with a transparent background.</p>
+
+<p>A collection of images organized into layers is represented in code using the <code><a href="Classes/Layers.html">Layers</a></code> class.</p>
+<pre class="highlight swift"><code><span class="c1">// Create a dictionary of all the images and layers we want to create.</span>
+<span class="c1">// This will then be passed to Layers</span>
+<span class="k">let</span> <span class="nv">layerDictionary</span><span class="p">:</span> <span class="p">[</span><span class="kt">Int</span><span class="p">:</span> <span class="kt">String</span><span class="p">]</span> <span class="o">=</span>
+<span class="p">[</span>
+  <span class="mi">0</span><span class="p">:</span> <span class="s">"Square"</span><span class="p">,</span>
+  <span class="mi">1</span><span class="p">:</span> <span class="s">"Triangle"</span><span class="p">,</span>
+  <span class="mi">2</span><span class="p">:</span> <span class="s">"Polygon"</span>
+<span class="p">]</span>
+
+<span class="c1">// Create the new layers object.</span>
+<span class="k">guard</span> <span class="k">let</span> <span class="nv">layers</span> <span class="o">=</span> <span class="k">try</span><span class="p">?</span> <span class="kt">Layers</span><span class="p">(</span><span class="nv">named</span><span class="p">:</span> <span class="n">layerDictionary</span><span class="p">)</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Some error occurred</span>
+  <span class="k">return</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>Alternatively, you could create a dictionary using UIImage objects:</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">layerDictionary</span><span class="p">:</span> <span class="p">[</span><span class="kt">Int</span><span class="p">:</span> <span class="kt">UIImage</span><span class="p">]</span>
+</code></pre>
+
+<p>And pass it to <code><a href="Classes/Layers.html#/s:7Overlay6LayersCACs10DictionaryVySiSo7UIImageCG4with_tKcfc">Layers.init(with:)</a></code></p>
+
+<p><em>Now we have a layered image represented in Swift!</em></p>
+<h4 id='rendering-layers' class='heading'>Rendering Layers</h4>
+
+<p>Of course, we want to be able to use our new composite image. To do that we use <code><a href="Classes/OverlayRenderer.html">OverlayRenderer</a></code></p>
+<pre class="highlight swift"><code><span class="c1">// Create a new renderer</span>
+<span class="k">let</span> <span class="nv">renderer</span> <span class="o">=</span> <span class="kt">OverlayRenderer</span><span class="p">()</span>
+
+<span class="n">renderer</span><span class="o">.</span><span class="nf">composite</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="n">layers</span><span class="p">)</span> <span class="p">{</span> <span class="n">result</span> <span class="k">in</span>
+  <span class="c1">// Here we can access the completed render</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>The result:</p>
+
+<p><img src="/docs/Images/ExampleComposite.png" alt="Result"></p>
+
+<p>To see this in action, check out the Sample App included in the source code.</p>
+<h4 id='layer-operations' class='heading'>Layer Operations</h4>
+
+<p>You can insert, append, and remove layers from a <code><a href="Classes/Layers.html">Layers</a></code> object.
+See the <a href="https://docs.aaronjsutton.com/overlay/Classes/Layers.html">Layers Guide</a></p>
+<h3 id='a-href-https-docs-aaronjsutton-com-overlay-api-documentation-a' class='heading'><a href="https://docs.aaronjsutton.com/overlay/">API Documentation</a></h3>
 <h2 id='contributing' class='heading'>Contributing</h2>
 
 <p>If you wish to contribute to Overlay, create a new branch, implement your feature or fix, and then submit a pull request.</p>
