@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "OverlayComposite"
-  s.version      = "1.0.0"
+  s.version      = "1.0.1"
   s.summary      = "An asynchronous, multithreaded, image compositing framework written in Swift."
   s.description  = """Overlay works using the concept of layered images.
   Each layer represents an individual image that can then be added atop another layer.
