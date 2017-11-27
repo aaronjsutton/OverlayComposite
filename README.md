@@ -21,15 +21,9 @@ And run `pod install`
 
 ### Quick Start
 
-Overlay works using the concept of layered images. Each layer represents an individual image that can then be added atop another layer. You can think of this like layers in Photoshop, or similar image editor.
+Overlay works using the concept of _layered images_. Each layer represents an individual image that can then be added atop another layer. You can think of this like layers in Photoshop, or similar image editor.
 
-### Documentation and Examples
-
-[Overlay Documentation](https://docs.aaronjsutton.com/overlay/)
-
-A Sample App is included in the source code.
-
-Clone and open `Overlay.xcworkspace` to run.
+### [API Documentation](https://docs.aaronjsutton.com/overlay/)
 
 ## Contributing
 
