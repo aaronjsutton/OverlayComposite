@@ -76,9 +76,9 @@ renderer.composite(from: layers) { result in
 
 The result:
 
-![Result](https://github.com/aaronjsutton/Overlay/blob/master/docs/Images/ExampleComposite.png?raw=true)
+![Result](/Images/ExampleComposite.png)
 
-To see this in action, check u
+To see this in action, check out the Sample App included in the source code.
 
 #### Layer Operations
 
