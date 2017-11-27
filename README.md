@@ -1,4 +1,4 @@
-![Logo](https://github.com/aaronjsutton/Overlay/blob/master/docs/Images/Logo.png?raw=true)
+![Logo](https://docs.aaronjsutton.com/overlay/img/logo.png)
 
 [![Build Status](https://travis-ci.org/aaronjsutton/Overlay.svg?branch=master)](https://travis-ci.org/aaronjsutton/Overlay)
 
@@ -26,7 +26,7 @@ Overlay works using the concept of _layered images_. Each layer represents an in
 
 For example, take the following model:
 
-![Layer 0](https://github.com/aaronjsutton/Overlay/blob/master/docs/Images/Example.png?raw=true)
+![Layer 0](https://docs.aaronjsutton.com/overlay/img/example.png)
 
 - Layer 0: A large blue square
 - Layer 1: A medium orange triangle
@@ -76,7 +76,7 @@ renderer.composite(from: layers) { result in
 
 The result:
 
-![Result](/Images/ExampleComposite.png)
+![Result](https://docs.aaronjsutton.com/overlay/img/result.png)
 
 To see this in action, check out the Sample App included in the source code.
 
