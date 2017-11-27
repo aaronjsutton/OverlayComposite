@@ -8,7 +8,9 @@ An asynchronous, multithreaded, image compositing framework written in Swift.
 
 Add Overlay to your Podfile:
 
-`pod 'Overlay'`
+```yml
+pod 'Overlay'
+```
 
 And run `pod install`
 
