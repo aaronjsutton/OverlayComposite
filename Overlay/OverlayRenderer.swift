@@ -43,7 +43,7 @@ public final class OverlayRenderer {
 	let context: CIContext
 	let filter: CIFilter
 
-	/// Initialize a new renderer.
+	/// Create a new renderer object.
 	public init() {
 		// Check if the devive supports Metal
 		if let mtlDevice = MTLCreateSystemDefaultDevice() {
