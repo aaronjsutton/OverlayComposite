@@ -30,10 +30,13 @@
             <a href="Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Classes.html#/s:7Overlay7OLImageC">OLImage</a>
+                <a href="Classes/Layers.html">Layers</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/OLLayers.html">OLLayers</a>
+                <a href="Classes/OverlayCore.html">OverlayCore</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/OverlayRenderer.html">OverlayRenderer</a>
               </li>
             </ul>
           </li>
@@ -41,10 +44,10 @@
             <a href="Structs.html">Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Structs/OLError.html">OLError</a>
+                <a href="Structs/OverlayError.html">OverlayError</a>
               </li>
               <li class="nav-group-task">
-                <a href="Structs/OLError/ErrorType.html">– ErrorType</a>
+                <a href="Structs/OverlayError/ErrorType.html">– ErrorType</a>
               </li>
             </ul>
           </li>
@@ -63,9 +66,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7Overlay8OLLayersC"></a>
-                    <a name="//apple_ref/swift/Class/OLLayers" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Overlay8OLLayersC">OLLayers</a>
+                    <a name="/s:7Overlay0A8RendererC"></a>
+                    <a name="//apple_ref/swift/Class/OverlayRenderer" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Overlay0A8RendererC">OverlayRenderer</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -73,17 +76,15 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This object represents a collection of images to be composited</p>
+                        <p>Renders Layers objects into composite images.</p>
 
-<p>Images are ordered by layer</p>
-
-                        <a href="Classes/OLLayers.html" class="slightly-smaller">See more</a>
+                        <a href="Classes/OverlayRenderer.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">OLLayers</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">OverlayRenderer</span></code></pre>
 
                         </div>
                       </div>
@@ -97,9 +98,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7Overlay7OLImageC"></a>
-                    <a name="//apple_ref/swift/Class/OLImage" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Overlay7OLImageC">OLImage</a>
+                    <a name="/s:7Overlay6LayersC"></a>
+                    <a name="//apple_ref/swift/Class/Layers" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Overlay6LayersC">Layers</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -107,16 +108,71 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The base class composite image</p>
+                        <h2 id='overview' class='heading'>Overview</h2>
 
-<p>Can represent images in multiple formats</p>
+<p>An object that represents images in layered order.</p>
 
+<p>These images can then be used by OLImage to create a composite image.</p>
+<h2 id='create-from-asset-catalog' class='heading'>Create from Asset Catalog</h2>
+<h3 id='create-a-new-layer-object-using-images-from-the-asset-catalog' class='heading'>Create a new layer object using images from the Asset catalog:</h3>
+<pre class="highlight swift"><code>    <span class="k">let</span> <span class="nv">layers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">:</span> <span class="s">"Background Image"</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s">"Overlay Image"</span><span class="p">]</span>
+    <span class="k">guard</span> <span class="k">let</span> <span class="nv">layers</span> <span class="o">=</span> <span class="k">try</span><span class="p">?</span> <span class="kt">OLLayers</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="n">layers</span><span class="p">)</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="c1">// Uh-oh! Error occurred.</span>
+    <span class="p">}</span>
+</code></pre>
+<h2 id='create-from-uiimage-objects' class='heading'>Create from UIImage Objects</h2>
+<h3 id='create-a-new-layer-object-using-images-from-uiimages' class='heading'>Create a new layer object using images from UIImages:</h3>
+<pre class="highlight swift"><code>    <span class="k">let</span> <span class="nv">layers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">:</span> <span class="n">image1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="n">image2</span><span class="p">]</span>
+    <span class="k">guard</span> <span class="k">let</span> <span class="nv">layers</span> <span class="o">=</span> <span class="k">try</span><span class="p">?</span> <span class="kt">OLLayers</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="n">layers</span><span class="p">)</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="c1">// Uh-oh! Error occurred.</span>
+    <span class="p">}</span>
+</code></pre>
+<h2 id='manipulating-layers' class='heading'>Manipulating Layers</h2>
+<h3 id='accessing-layers' class='heading'>Accessing layers:</h3>
+<pre class="highlight swift"><code>    <span class="n">layers</span><span class="o">.</span><span class="nf">layer</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</code></pre>
+
+<p>Returns a UIImage of layer 0.</p>
+
+                        <a href="Classes/Layers.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">OLImage</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">Layers</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Overlay0A4CoreC"></a>
+                    <a name="//apple_ref/swift/Class/OverlayCore" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Overlay0A4CoreC">OverlayCore</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Basic methods for working with Image and Overlay types.</p>
+
+                        <a href="Classes/OverlayCore.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">OverlayCore</span></code></pre>
 
                         </div>
                       </div>
@@ -128,7 +184,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2017 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2017-11-24)</p>
+          <p>&copy; 2017 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2017-11-26)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.4</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
