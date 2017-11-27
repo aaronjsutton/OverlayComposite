@@ -10,9 +10,7 @@ Add Overlay to your Podfile:
 
 `pod 'Overlay'`
 
-And run
-
-`pod install`
+And run `pod install`
 
 ## Usage
 
