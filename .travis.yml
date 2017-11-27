@@ -1,0 +1,9 @@
+os: osx
+osx_image: xcode9
+language: swift
+xcode_workspace: Overlay.xcworkspace
+install:
+ - sudo gem install bundler
+ - brew install swiftlint
+ - sudo bundle install
+before_script: swiftlint
