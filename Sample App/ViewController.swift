@@ -53,7 +53,7 @@ class ViewController: UIViewController {
 		let layerDictionary =
 			[
 				0: UIImage(named: "Square")!,
-			]
+				]
 		guard let compositeLayers = try? Layers(with: layerDictionary) else {
 			return
 		}
