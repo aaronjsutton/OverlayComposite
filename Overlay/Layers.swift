@@ -323,6 +323,22 @@ public final class Layers {
 		}
 	}
 
+	/// Switch the contents of two layers.
+	///
+	/// - Parameters:
+	///   - first: The first layer.
+	///   - second: The second layer.
+	public func swapLayers(_ first: Int, _ second: Int) {
+		guard let swap = images[second] else {
+			return
+		}
+		guard images[first] != nil else {
+			return
+		}
+		images.updateValue(images[first]!, forKey: second)
+		images.updateValue(swap, forKey: first)
+	}
+
 	// MARK: - Helpers
 
 	/// Validate a layer dictionary.
