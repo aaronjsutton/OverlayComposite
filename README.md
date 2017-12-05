@@ -1,6 +1,6 @@
 ![Logo](https://docs.aaronjsutton.com/overlay/img/logo.png)
 
-[![Build Status](https://travis-ci.org/aaronjsutton/Overlay.svg?branch=master)](https://travis-ci.org/aaronjsutton/Overlay)
+[![Build Status](https://travis-ci.org/aaronjsutton/OverlayComposite.svg?branch=master)](https://travis-ci.org/aaronjsutton/OverlayComposite)
 [![CocoaPods](https://img.shields.io/cocoapods/v/OverlayComposite.svg)]()
 
 
